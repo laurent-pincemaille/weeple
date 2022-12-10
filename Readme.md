@@ -2,7 +2,7 @@
 
 # Modop
 python -m venv venv
-venv\script
+venv\Script activate ou venv/bin/activate (macos)
 
 
 
