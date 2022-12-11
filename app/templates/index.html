@@ -8,7 +8,23 @@
     <link rel="stylesheet" href="../static/css/style.css">
 </head>
 <body>
-    <h1>WEEPLE</h1>
+    <header class="white flex">
+        <div class="btn blueBackground" id="homeBtn">home</div>
+        <div class="btn blueBackground" id="profileBtn">profile</div>
+    </header>
+    <main class="flex">
+        <div id="addNewGameformContainer" class="blueBackground flex width100">
+            <div id="addNewGamelabel" class="white width100">
+                Quel jeu voulez-vous ajouter</br> à votre ludothèque?
+            </div>
+                <div id="inputBox" class="width100">
+                    <input type="text" id="addNewGameInput">
+                    <div class="btn whiteBackground" id="addNewGameBtn">ajouter</div>
+                </div>
+        </div>
+        <div id="myGames" class="blueBackground white width100">Mes jeux</div> 
+        <div id="gamesList" class="width100 blueBackground"></div>
+    </main>
     <script src="../static/js/main.js"></script>
 </body>
 </html>

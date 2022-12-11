@@ -1,4 +1,73 @@
 *{
+	margin: 0;
+	padding: 0;
+	font-size: 20px;
+	box-sizing: border-box;
 	font-family: Arial, Helvetica, sans-serif;
-	color: grey;
+	border: none;
 }
+*:focus{
+	outline: none;
+}
+.blueBackground{
+	background-color: cornflowerblue;
+}
+.whiteBackground{
+	background-color: white;
+}
+.white{
+	color: white;
+}
+.flex{
+	display: flex;
+	align-items: center;
+}
+.width100{
+	width: 100%;
+}
+.btn{
+	padding: 7px;
+}
+body{
+	height: 100vh;
+}
+header{
+	justify-content: space-between;
+	background-color:darkslategrey;
+	font-size: 30px;
+	padding: 10px;
+}
+main{
+	flex-direction: column;
+	justify-content:start;
+	margin: 5px;
+}
+main > *{
+	margin-top: 5px ;
+}
+#addNewGameformContainer{
+	flex-direction: column;
+	justify-content: space-between;
+}
+#addNewGameformContainer *{
+	margin: 5px;
+}
+#inputBox{
+	display: flex;
+	justify-content: space-between;
+}
+#addNewGamelabel{
+	text-align: center;
+}
+#addNewGameInput{
+	height: 35px;
+	width: 80%;
+}
+#myGames{
+	padding: 20px;
+	font-size: 30px;
+}
+#gamesList{
+
+}
+
