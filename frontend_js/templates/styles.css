@@ -1,0 +1,34 @@
+/* Réinitialisation des styles pour le body et les listes */
+body, ul {
+    margin: 0;
+    padding: 0;
+}
+
+/* Style de la barre de navigation */
+nav {
+    background-color: #333; /* Couleur de fond de la barre de navigation */
+}
+
+#nav-list {
+    list-style: none; /* Supprime les puces de la liste */
+    display: flex; /* Affiche les éléments de la liste en tant que flexbox pour les aligner horizontalement */
+}
+
+#nav-list li {
+    padding: 15px; /* Ajoute un espacement autour des éléments de la liste */
+    display: inline; /* Affiche les éléments de la liste en ligne, côte à côte */
+}
+
+#nav-list li a {
+    color: white; /* Couleur du texte des liens */
+    text-decoration: none; /* Supprime le soulignement des liens */
+}
+
+#nav-list li:hover {
+    background-color: #555; /* Couleur de fond au survol */
+}
+
+/* Affichage des liens du profil uniquement lorsqu'ils sont activés */
+#profile-link, #games-link, #logout-link {
+    display: none;
+}

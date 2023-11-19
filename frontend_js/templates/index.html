@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Board Game Collector</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <ul id="nav-list">
+                <li><a href="#" onclick="loadPage('home')">Home</a></li>
+                <li><a href="#" onclick="loadPage('signup')">Sign Up</a></li>
+                <li><a href="#" onclick="loadPage('login')">Login</a></li>
+                <li id="profile-link" style="display: none;"><a href="#" onclick="loadPage('profile')">Profile</a></li>
+                <li id="games-link" style="display: none;"><a href="#" onclick="loadPage('games')">My Games</a></li>
+                <li id="logout-link" style="display: none;"><a href="#" onclick="logout()">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div id="content">
+        <!-- Content will be loaded here -->
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
