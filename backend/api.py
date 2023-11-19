@@ -2,12 +2,15 @@ from flask import Flask,request, render_template
 from models import db, User, Game 
 from config import myconfig
 from flask_migrate import Migrate
+from flask_cors import CORS, cross_origin
 
 def create_app(config_name):
     app = Flask(__name__)
     app.config.from_object(myconfig[config_name])
     # Initialize extensions (base de données, ...)
+    cors = CORS(app)
     db.init_app(app)
+
     migrate = Migrate(app, db)
     return app
 
