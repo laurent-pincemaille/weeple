@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', function () {
     loadPage('home');
 });
 
+my_api = 'http://127.0.0.1:5000'
 
 function loadPage(page) {
     const contentDiv = document.getElementById('content');
@@ -18,26 +19,28 @@ function loadPage(page) {
 
 function signup() {
     var username = document.getElementById("username").value;
+    var email = document.getElementById("email").value;
     var password = document.getElementById("password").value;
     var confirmPassword = document.getElementById("confirmPassword").value;
+    console.log(email)
 
     if (password !== confirmPassword) {
         alert("Passwords do not match");
     } else {
         // Envoyez une requête au serveur pour l'inscription
-        fetch('/signup', {
+        fetch(`${my_api}/signup`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ username, password }),
+            body: JSON.stringify({ username, email,password }),
         })
             .then(response => response.json())
             .then(data => {
                 if (data.success) {
-                    alert("Sign Up successful!");
+                    console.log("Sign Up successful!");
                     // Rediriger vers la page de connexion
-                    window.location.href = "/login";
+                    window.location.href = `${my_api}/login`;
                 } else {
                     alert("Error during Sign Up");
                 }
