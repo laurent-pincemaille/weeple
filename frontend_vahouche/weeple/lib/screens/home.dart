@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:weeple/fake_data/random_list.dart';
 import 'package:weeple/styles.dart';
 import 'package:weeple/widgets/navigation/ludotheque.dart';
 import 'package:weeple/widgets/navigation/messages.dart';
@@ -15,11 +14,24 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   int _currentIdexPage = 0;
+  final List<String> _appBartitles = [
+    "Profile",
+    "Ludothèque",
+    "Wishlist",
+    "Messages"
+  ];
+  late String _appBartitle;
+  @override
+  void initState() {
+    _appBartitle = _appBartitles[_currentIdexPage];
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Weeple"),
+        title: Text(_appBartitle),
         backgroundColor: primaryColor,
       ),
       body: SafeArea(
@@ -37,6 +49,7 @@ class _HomeState extends State<Home> {
         onDestinationSelected: (int index) {
           setState(() {
             _currentIdexPage = index;
+            _appBartitle = _appBartitles[index];
           });
         },
         destinations: const <Widget>[
