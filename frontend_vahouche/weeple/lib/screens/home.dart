@@ -34,6 +34,7 @@ class _HomeState extends State<Home> {
         title: Text(_appBartitle),
         backgroundColor: primaryColor,
       ),
+      backgroundColor: secondaryColor,
       body: SafeArea(
         child: <Widget>[
           const Profil(),
