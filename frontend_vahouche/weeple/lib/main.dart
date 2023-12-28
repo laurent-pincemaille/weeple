@@ -22,8 +22,9 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-        //HIDE DEBUG BANER
-        debugShowCheckedModeBanner: false,
-        home: Home());
+      //HIDE DEBUG BANER
+      debugShowCheckedModeBanner: false,
+      home: Home(),
+    );
   }
 }
