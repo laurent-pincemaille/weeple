@@ -1,20 +1,66 @@
 import 'package:flutter/material.dart';
 import 'package:weeple/fake_data/random_list.dart';
+import 'package:weeple/styles.dart';
+import 'package:weeple/widgets/navigation/ludotheque.dart';
+import 'package:weeple/widgets/navigation/messages.dart';
+import 'package:weeple/widgets/navigation/profil.dart';
+import 'package:weeple/widgets/navigation/wishlist.dart';
 
-class Home extends StatelessWidget {
+class Home extends StatefulWidget {
   const Home({super.key});
 
   @override
+  State<Home> createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  int _currentIdexPage = 0;
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Home")),
+      appBar: AppBar(
+        title: const Text("Weeple"),
+        backgroundColor: primaryColor,
+      ),
       body: SafeArea(
-        child: ListView.builder(
-          itemCount: randomList.length, // items is a List
-          itemBuilder: (ctx, index) => ListTile(
-            title: Text(randomList[index]),
+        child: <Widget>[
+          const Profil(),
+          const Ludotheque(),
+          const Wishlist(),
+          const Messages(),
+        ][_currentIdexPage],
+      ),
+      bottomNavigationBar: NavigationBar(
+        selectedIndex: _currentIdexPage,
+        backgroundColor: primaryColor,
+        labelBehavior: NavigationDestinationLabelBehavior.alwaysHide,
+        onDestinationSelected: (int index) {
+          setState(() {
+            _currentIdexPage = index;
+          });
+        },
+        destinations: const <Widget>[
+          NavigationDestination(
+            selectedIcon: Icon(Icons.person, color: primaryColorLightest),
+            icon: Icon(Icons.person_outline, color: primaryColorLightest),
+            label: 'Profil',
           ),
-        ),
+          NavigationDestination(
+            selectedIcon: Icon(Icons.casino, color: primaryColorLightest),
+            icon: Icon(Icons.casino_outlined, color: primaryColorLightest),
+            label: 'Ludothèque',
+          ),
+          NavigationDestination(
+            selectedIcon: Icon(Icons.favorite, color: primaryColorLightest),
+            icon: Icon(Icons.favorite_outline, color: primaryColorLightest),
+            label: 'WishList',
+          ),
+          NavigationDestination(
+            selectedIcon: Icon(Icons.message, color: primaryColorLightest),
+            icon: Icon(Icons.message_outlined, color: primaryColorLightest),
+            label: 'Messages',
+          ),
+        ],
       ),
     );
   }
