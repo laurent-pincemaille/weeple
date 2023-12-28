@@ -2,6 +2,10 @@ import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter/material.dart';
 
+import 'package:weeple/screens/hello_world.dart';
+import 'package:weeple/screens/home.dart';
+import 'package:weeple/screens/login.dart';
+
 void main() {
   //ORIENTATION LOCK
   WidgetsFlutterBinding.ensureInitialized();
@@ -17,17 +21,9 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      //HIDE DEBUG BANER
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: AppBar(title: const Text("Weeple")),
-        body: const SafeArea(
-          child: Center(
-            child: Text("Hello Word"),
-          ),
-        ),
-      ),
-    );
+    return const MaterialApp(
+        //HIDE DEBUG BANER
+        debugShowCheckedModeBanner: false,
+        home: Home());
   }
 }
