@@ -5,3 +5,5 @@ const Color primaryColorLighter = Color.fromARGB(255, 82, 165, 197);
 const Color primaryColorLightest = Color.fromARGB(255, 187, 213, 223);
 
 const Color secondaryColor = Color.fromARGB(255, 233, 218, 198);
+
+const Color neutral = Colors.black38;

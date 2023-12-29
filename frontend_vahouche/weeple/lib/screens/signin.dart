@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:weeple/screens/home.dart';
-import 'package:weeple/screens/signin.dart';
+import 'package:weeple/screens/login.dart';
+import 'package:weeple/screens/welcome.dart';
 import 'package:weeple/styles.dart';
 
 enum InputType {
@@ -10,14 +10,14 @@ enum InputType {
   address,
 }
 
-class Login extends StatefulWidget {
-  const Login({super.key});
+class SignIn extends StatefulWidget {
+  const SignIn({super.key});
 
   @override
-  State<Login> createState() => _LoginState();
+  State<SignIn> createState() => _LoginState();
 }
 
-class _LoginState extends State<Login> {
+class _LoginState extends State<SignIn> {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
@@ -29,16 +29,15 @@ class _LoginState extends State<Login> {
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              Logo(),
               SizedBox(height: 16),
               Title(),
               SizedBox(height: 16),
               Input(inputType: InputType.mail),
               Input(inputType: InputType.password),
-              // Expanded(child: SizedBox()),
-              ConnexionBtn(),
-              SignInSection(),
-              ForgontenPassword(),
+              Input(inputType: InputType.pseudo),
+              Input(inputType: InputType.address),
+              SignInBtn(),
+              LogInSection(),
             ],
           ),
         ),
@@ -54,9 +53,9 @@ class Title extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Text(
-      "Weeple",
+      "Renseignez vos informations",
       style: TextStyle(
-          fontSize: 32, fontWeight: FontWeight.bold, color: primaryColor),
+          fontSize: 20, fontWeight: FontWeight.bold, color: primaryColor),
     );
   }
 }
@@ -101,6 +100,16 @@ class _InputState extends State<Input> {
     if (widget.inputType == InputType.password) {
       _iconData = Icons.lock;
       _hint = "mot de passe";
+      _textInputType = TextInputType.text;
+    }
+    if (widget.inputType == InputType.pseudo) {
+      _iconData = Icons.sentiment_satisfied_alt;
+      _hint = "pseudo";
+      _textInputType = TextInputType.text;
+    }
+    if (widget.inputType == InputType.address) {
+      _iconData = Icons.home_filled;
+      _hint = "adresse";
       _textInputType = TextInputType.text;
     }
     super.initState();
@@ -173,8 +182,8 @@ class _InputState extends State<Input> {
   }
 }
 
-class ConnexionBtn extends StatelessWidget {
-  const ConnexionBtn({super.key});
+class SignInBtn extends StatelessWidget {
+  const SignInBtn({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -186,11 +195,8 @@ class ConnexionBtn extends StatelessWidget {
         onPressed: () {
           Navigator.of(context).pop();
           {
-            Navigator.of(context).push(
-              MaterialPageRoute(
-                builder: (ctx) => const Home(),
-              ),
-            );
+            Navigator.of(context)
+                .push(MaterialPageRoute(builder: (ctx) => const Wellcome()));
           }
         },
         style: ElevatedButton.styleFrom(
@@ -199,7 +205,7 @@ class ConnexionBtn extends StatelessWidget {
               borderRadius: BorderRadius.all(Radius.circular(32))),
         ),
         child: const Text(
-          "CONNEXION",
+          "SUIVANT",
           style: TextStyle(fontSize: 24),
         ),
       ),
@@ -207,8 +213,8 @@ class ConnexionBtn extends StatelessWidget {
   }
 }
 
-class SignInSection extends StatelessWidget {
-  const SignInSection({super.key});
+class LogInSection extends StatelessWidget {
+  const LogInSection({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -216,7 +222,7 @@ class SignInSection extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         const Text(
-          "Pas encore de compte?",
+          "Déjà un compte ?",
           style: TextStyle(color: primaryColorLighter, fontSize: 16),
         ),
         TextButton(
@@ -224,44 +230,14 @@ class SignInSection extends StatelessWidget {
               Navigator.of(context).pop();
               {
                 Navigator.of(context)
-                    .push(MaterialPageRoute(builder: (ctx) => const SignIn()));
+                    .push(MaterialPageRoute(builder: (ctx) => const Login()));
               }
             },
             child: const Text(
-              "Inscrivez-vous !",
+              "Connectez-vous !",
               style: TextStyle(color: primaryColor, fontSize: 16),
             ))
       ],
-    );
-  }
-}
-
-class ForgontenPassword extends StatelessWidget {
-  const ForgontenPassword({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return TextButton(
-      onPressed: () {
-        ScaffoldMessenger.of(context).removeCurrentSnackBar();
-        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-            backgroundColor: primaryColor,
-            content: Padding(
-              padding: EdgeInsets.all(8),
-              child: Text(
-                "Un mail vous permettant de réinitialiser votre mot de passe vous a été envoyé à l'adresse indiquée",
-                style: TextStyle(fontSize: 16),
-              ),
-            ),
-            duration: Duration(seconds: 4)));
-      },
-      child: const Text(
-        "mot de passe oublié",
-        style: TextStyle(
-            color: primaryColorLighter,
-            fontSize: 16,
-            fontWeight: FontWeight.normal),
-      ),
     );
   }
 }

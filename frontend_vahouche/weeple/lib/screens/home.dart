@@ -13,7 +13,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  int _currentIdexPage = 0;
+  int _currentIdexPage = 1;
   final List<String> _appBartitles = [
     "Profile",
     "Ludothèque",
@@ -32,6 +32,9 @@ class _HomeState extends State<Home> {
     return Scaffold(
       appBar: AppBar(
         title: Text(_appBartitle),
+        actions: _currentIdexPage == 1 || _currentIdexPage == 2
+            ? [IconButton(onPressed: () {}, icon: const Icon(Icons.add))]
+            : [],
         backgroundColor: primaryColor,
       ),
       backgroundColor: secondaryColor,
@@ -53,26 +56,31 @@ class _HomeState extends State<Home> {
             _appBartitle = _appBartitles[index];
           });
         },
-        destinations: const <Widget>[
+        destinations: <Widget>[
           NavigationDestination(
-            selectedIcon: Icon(Icons.person, color: primaryColorLightest),
-            icon: Icon(Icons.person_outline, color: primaryColorLightest),
-            label: 'Profil',
+            selectedIcon: const Icon(Icons.person, color: primaryColorLightest),
+            icon: const Icon(Icons.person_outline, color: primaryColorLightest),
+            label: _appBartitles[0],
           ),
           NavigationDestination(
-            selectedIcon: Icon(Icons.casino, color: primaryColorLightest),
-            icon: Icon(Icons.casino_outlined, color: primaryColorLightest),
-            label: 'Ludothèque',
+            selectedIcon: const Icon(Icons.casino, color: primaryColorLightest),
+            icon:
+                const Icon(Icons.casino_outlined, color: primaryColorLightest),
+            label: _appBartitles[1],
           ),
           NavigationDestination(
-            selectedIcon: Icon(Icons.favorite, color: primaryColorLightest),
-            icon: Icon(Icons.favorite_outline, color: primaryColorLightest),
-            label: 'WishList',
+            selectedIcon:
+                const Icon(Icons.favorite, color: primaryColorLightest),
+            icon:
+                const Icon(Icons.favorite_outline, color: primaryColorLightest),
+            label: _appBartitles[2],
           ),
           NavigationDestination(
-            selectedIcon: Icon(Icons.message, color: primaryColorLightest),
-            icon: Icon(Icons.message_outlined, color: primaryColorLightest),
-            label: 'Messages',
+            selectedIcon:
+                const Icon(Icons.message, color: primaryColorLightest),
+            icon:
+                const Icon(Icons.message_outlined, color: primaryColorLightest),
+            label: _appBartitles[3],
           ),
         ],
       ),

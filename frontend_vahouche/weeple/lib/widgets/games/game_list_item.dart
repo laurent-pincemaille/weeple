@@ -2,13 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:weeple/styles.dart';
 
 class GameListitem extends StatelessWidget {
-  const GameListitem({super.key});
-
+  const GameListitem({
+    super.key,
+    required this.game,
+  });
+  final Map game;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        print("clicked");
+        print("${game["title"]} clicked");
       },
       child: Card(
         child: Row(
@@ -18,12 +21,14 @@ class GameListitem extends StatelessWidget {
               child: Container(
                 height: 64,
                 width: 64,
-                decoration: const BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(8)),
-                    color: primaryColorLighter),
+                decoration: BoxDecoration(
+                  borderRadius: const BorderRadius.all(Radius.circular(8)),
+                  image: DecorationImage(
+                      image: NetworkImage(game["url"]), fit: BoxFit.contain),
+                ),
               ),
             ),
-            const Text("Game Title"),
+            Text(game["title"]),
           ],
         ),
       ),

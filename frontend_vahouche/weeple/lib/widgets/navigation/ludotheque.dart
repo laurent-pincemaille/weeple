@@ -10,8 +10,11 @@ class Ludotheque extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(left: 4, right: 4),
       child: ListView.builder(
-          itemCount: randomList.length, // items is a List
-          itemBuilder: (ctx, index) => const GameListitem()),
+        itemCount: randomList.length, // items is a List
+        itemBuilder: (ctx, index) => GameListitem(
+          game: randomList[index],
+        ),
+      ),
     );
   }
 }

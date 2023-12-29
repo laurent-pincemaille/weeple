@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:weeple/screens/hello_world.dart';
 import 'package:weeple/screens/home.dart';
 import 'package:weeple/screens/login.dart';
+import 'package:weeple/screens/signin.dart';
 
 void main() {
   //ORIENTATION LOCK
@@ -22,9 +23,10 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      //HIDE DEBUG BANER
       debugShowCheckedModeBanner: false,
-      home: Home(),
+      // home: Home(),
+      home: Login(),
+      // home: SignIn(),
     );
   }
 }
