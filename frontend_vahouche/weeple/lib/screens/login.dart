@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:weeple/fake_data/users.dart';
 import 'package:weeple/screens/home.dart';
 import 'package:weeple/screens/signin.dart';
 import 'package:weeple/styles.dart';
@@ -188,7 +189,7 @@ class ConnexionBtn extends StatelessWidget {
           {
             Navigator.of(context).push(
               MaterialPageRoute(
-                builder: (ctx) => const Home(),
+                builder: (ctx) => Home(user: users[0]),
               ),
             );
           }

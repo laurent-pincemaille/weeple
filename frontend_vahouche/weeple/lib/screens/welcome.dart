@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:weeple/fake_data/users.dart';
 import 'package:weeple/screens/home.dart';
 import 'package:weeple/screens/login.dart';
 import 'package:weeple/styles.dart';
@@ -185,8 +186,10 @@ class SignInBtn extends StatelessWidget {
         onPressed: () {
           Navigator.of(context).pop();
           {
-            Navigator.of(context)
-                .push(MaterialPageRoute(builder: (ctx) => const Home()));
+            Navigator.of(context).push(MaterialPageRoute(
+                builder: (ctx) => Home(
+                      user: users[0],
+                    )));
           }
         },
         style: ElevatedButton.styleFrom(

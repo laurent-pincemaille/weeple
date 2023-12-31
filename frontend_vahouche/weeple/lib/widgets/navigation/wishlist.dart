@@ -1,42 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:weeple/styles.dart';
+import 'package:weeple/models/user.dart';
+import 'package:weeple/widgets/games/empty_list_content.dart';
+import 'package:weeple/widgets/games/game_list.dart';
 
 class Wishlist extends StatelessWidget {
-  const Wishlist({super.key});
+  const Wishlist({super.key, required this.user});
+  final User user;
 
   @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.only(left: 8, right: 8, top: 16),
-      child: Column(
-        children: [
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.end,
-            children: [
-              Text(
-                """Aucun jeu n'est sur votre wishlist 
-pour le moment
-vous pouvez en ajouter grâce au bouton""",
-                style: TextStyle(
-                    color: primaryColor,
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold),
-              ),
-              Icon(
-                Icons.add,
-                size: 36,
-                color: primaryColor,
-              )
-            ],
-          ),
-          Spacer(),
-          Image(
-            image: AssetImage("assets/empty.webp"),
-            width: 300,
-          ),
-          SizedBox(height: 64),
-        ],
-      ),
-    );
+    final List gameList = user.wishlist;
+    if (gameList.isEmpty) {
+      return const EmptyListContent(gameListType: 'wishlist');
+    }
+    return GameList(user: user, gameListType: "wishlist");
   }
 }

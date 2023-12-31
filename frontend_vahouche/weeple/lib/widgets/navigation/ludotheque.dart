@@ -1,20 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:weeple/fake_data/random_list.dart';
-import 'package:weeple/widgets/games/game_list_item.dart';
+import 'package:weeple/models/user.dart';
+import 'package:weeple/widgets/games/empty_list_content.dart';
+import 'package:weeple/widgets/games/game_list.dart';
 
 class Ludotheque extends StatelessWidget {
-  const Ludotheque({super.key});
+  const Ludotheque({super.key, required this.user});
+  final User user;
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(left: 4, right: 4),
-      child: ListView.builder(
-        itemCount: randomList.length, // items is a List
-        itemBuilder: (ctx, index) => GameListitem(
-          game: randomList[index],
-        ),
-      ),
-    );
+    final List gameList = user.ludotheque;
+    if (gameList.isEmpty) {
+      return const EmptyListContent(gameListType: 'ludotehèque');
+    }
+    return GameList(user: user, gameListType: "ludotheque");
   }
 }

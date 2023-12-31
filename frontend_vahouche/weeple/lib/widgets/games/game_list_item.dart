@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:weeple/models/game.dart';
 import 'package:weeple/styles.dart';
 
 class GameListitem extends StatelessWidget {
@@ -6,12 +7,12 @@ class GameListitem extends StatelessWidget {
     super.key,
     required this.game,
   });
-  final Map game;
+  final Game game;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        print("${game["title"]} clicked");
+        print("${game.name} clicked");
       },
       child: Card(
         child: Row(
@@ -24,11 +25,11 @@ class GameListitem extends StatelessWidget {
                 decoration: BoxDecoration(
                   borderRadius: const BorderRadius.all(Radius.circular(8)),
                   image: DecorationImage(
-                      image: NetworkImage(game["url"]), fit: BoxFit.contain),
+                      image: NetworkImage(game.imageUrl), fit: BoxFit.contain),
                 ),
               ),
             ),
-            Text(game["title"]),
+            Text(game.name),
           ],
         ),
       ),

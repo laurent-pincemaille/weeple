@@ -1,18 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:weeple/fake_data/users.dart';
+import 'package:weeple/models/user.dart';
 import 'package:weeple/styles.dart';
+import 'package:weeple/fake_data/games.dart';
 import 'package:weeple/widgets/navigation/ludotheque.dart';
 import 'package:weeple/widgets/navigation/messages.dart';
 import 'package:weeple/widgets/navigation/profil.dart';
 import 'package:weeple/widgets/navigation/wishlist.dart';
 
 class Home extends StatefulWidget {
-  const Home({super.key});
-
+  const Home({
+    super.key,
+    required this.user,
+  });
+  final User user;
   @override
   State<Home> createState() => _HomeState();
 }
 
 class _HomeState extends State<Home> {
+  final _user = users.where((user) => user.id == "id1").toList()[0];
   int _currentIdexPage = 1;
   final List<String> _appBartitles = [
     "Profile",
@@ -40,9 +47,9 @@ class _HomeState extends State<Home> {
       backgroundColor: secondaryColor,
       body: SafeArea(
         child: <Widget>[
-          const Profil(),
-          const Ludotheque(),
-          const Wishlist(),
+          Profil(user: widget.user),
+          Ludotheque(user: _user),
+          Wishlist(user: _user),
           const Messages(),
         ][_currentIdexPage],
       ),
