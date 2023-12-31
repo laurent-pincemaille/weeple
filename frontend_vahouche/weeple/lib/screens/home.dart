@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:weeple/fake_data/users.dart';
 import 'package:weeple/models/user.dart';
 import 'package:weeple/styles.dart';
-import 'package:weeple/fake_data/games.dart';
 import 'package:weeple/widgets/navigation/ludotheque.dart';
 import 'package:weeple/widgets/navigation/messages.dart';
 import 'package:weeple/widgets/navigation/profil.dart';

@@ -1,11 +1,7 @@
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter/material.dart';
-import 'package:weeple/fake_data/games.dart';
 import 'package:weeple/fake_data/users.dart';
-import 'package:weeple/screens/game_details.dart';
-
-import 'package:weeple/screens/hello_world.dart';
 import 'package:weeple/screens/home.dart';
 import 'package:weeple/screens/login.dart';
 import 'package:weeple/screens/signin.dart';

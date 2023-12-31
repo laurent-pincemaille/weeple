@@ -12,11 +12,13 @@ class GameListitem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.of(context).push(MaterialPageRoute(
+        Navigator.of(context).push(
+          MaterialPageRoute(
             builder: (ctx) => GameDetails(
-                  game: game,
-                )));
-        ;
+              game: game,
+            ),
+          ),
+        );
       },
       child: Card(
         child: Row(
