@@ -28,6 +28,8 @@ class _HomeState extends State<Home> {
     "Messages"
   ];
   late String _appBartitle;
+  List<Widget> _appBarAction = [];
+
   @override
   void initState() {
     _appBartitle = _appBartitles[_currentIdexPage];
@@ -36,12 +38,23 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
+    if (_currentIdexPage == 3) {
+      _appBarAction = [];
+    }
+    if (_currentIdexPage == 0) {
+      _appBarAction = [
+        IconButton(onPressed: () {}, icon: const Icon(Icons.settings_outlined))
+      ];
+    }
+    if (_currentIdexPage == 1 || _currentIdexPage == 2) {
+      _appBarAction = [
+        IconButton(onPressed: () {}, icon: const Icon(Icons.add))
+      ];
+    }
     return Scaffold(
       appBar: AppBar(
         title: Text(_appBartitle),
-        actions: _currentIdexPage == 1 || _currentIdexPage == 2
-            ? [IconButton(onPressed: () {}, icon: const Icon(Icons.add))]
-            : [],
+        actions: _appBarAction,
         backgroundColor: primaryColor,
       ),
       backgroundColor: secondaryColor,
