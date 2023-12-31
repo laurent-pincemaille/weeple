@@ -1,6 +1,9 @@
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter/material.dart';
+import 'package:weeple/fake_data/games.dart';
+import 'package:weeple/fake_data/users.dart';
+import 'package:weeple/screens/game_details.dart';
 
 import 'package:weeple/screens/hello_world.dart';
 import 'package:weeple/screens/home.dart';
@@ -22,10 +25,12 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      // home: Home(),
-      home: Login(),
+      home: Home(
+        user: users[0],
+      ),
+      // home: Login(),
       // home: SignIn(),
     );
   }

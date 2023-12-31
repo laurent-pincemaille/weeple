@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:weeple/models/user.dart';
-import 'package:weeple/widgets/games/empty_list_content.dart';
+import 'package:weeple/widgets/games/empty_game_list_content.dart';
 import 'package:weeple/widgets/games/game_list_item.dart';
 
 class GameList extends StatefulWidget {

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:weeple/models/game.dart';
-import 'package:weeple/styles.dart';
+import 'package:weeple/screens/game_details.dart';
 
 class GameListitem extends StatelessWidget {
   const GameListitem({
@@ -12,7 +12,11 @@ class GameListitem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        print("${game.name} clicked");
+        Navigator.of(context).push(MaterialPageRoute(
+            builder: (ctx) => GameDetails(
+                  game: game,
+                )));
+        ;
       },
       child: Card(
         child: Row(
