@@ -41,20 +41,8 @@ class _LudothequeState extends State<GameList> {
     setState(() {
       _gameList.remove(game);
     });
-    if (gameListeType == "ludotheque") {
-      Navigator.of(context).push(
-        MaterialPageRoute(
-          builder: (ctx) => Home(user: widget.user, pageIndex: 1),
-        ),
-      );
-    }
-    if (gameListeType == "wishlist") {
-      Navigator.of(context).push(
-        MaterialPageRoute(
-          builder: (ctx) => Home(user: widget.user, pageIndex: 2),
-        ),
-      );
-    }
+    Navigator.of(context).pop(); //go back to game details
+    Navigator.of(context).pop(); //go back to game list
   }
 
   @override
