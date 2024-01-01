@@ -25,6 +25,7 @@ class App extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: Home(
         user: users[0],
+        pageIndex: 1,
       ),
       // home: Login(),
       // home: SignIn(),

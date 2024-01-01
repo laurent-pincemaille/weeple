@@ -189,7 +189,7 @@ class ConnexionBtn extends StatelessWidget {
           {
             Navigator.of(context).push(
               MaterialPageRoute(
-                builder: (ctx) => Home(user: users[0]),
+                builder: (ctx) => Home(user: users[0],pageIndex: 1),
               ),
             );
           }

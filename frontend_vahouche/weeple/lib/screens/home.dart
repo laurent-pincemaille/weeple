@@ -11,15 +11,17 @@ class Home extends StatefulWidget {
   const Home({
     super.key,
     required this.user,
+    required this.pageIndex,
   });
   final User user;
+  final int pageIndex;
   @override
   State<Home> createState() => _HomeState();
 }
 
 class _HomeState extends State<Home> {
   final _user = users.where((user) => user.id == "id1").toList()[0];
-  int _currentIdexPage = 1;
+  late int _currentIdexPage;
   final List<String> _appBartitles = [
     "Profile",
     "Ludothèque",
@@ -31,6 +33,7 @@ class _HomeState extends State<Home> {
 
   @override
   void initState() {
+    _currentIdexPage = widget.pageIndex;
     _appBartitle = _appBartitles[_currentIdexPage];
     super.initState();
   }

@@ -6,8 +6,13 @@ class GameListitem extends StatelessWidget {
   const GameListitem({
     super.key,
     required this.game,
+    required this.deleteGame,
+    required this.gameListType,
   });
   final Game game;
+  final void Function({required Game game, required String gameListeType})
+      deleteGame;
+  final String gameListType;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -16,6 +21,8 @@ class GameListitem extends StatelessWidget {
           MaterialPageRoute(
             builder: (ctx) => GameDetails(
               game: game,
+              deleteGame: deleteGame,
+              gameListType: gameListType,
             ),
           ),
         );

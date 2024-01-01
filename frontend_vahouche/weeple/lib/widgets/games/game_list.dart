@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:weeple/models/game.dart';
 import 'package:weeple/models/user.dart';
+import 'package:weeple/screens/home.dart';
 import 'package:weeple/widgets/games/empty_game_list_content.dart';
 import 'package:weeple/widgets/games/game_list_item.dart';
+import 'package:weeple/widgets/navigation/ludotheque.dart';
 
 class GameList extends StatefulWidget {
   const GameList({
@@ -28,6 +31,31 @@ class _LudothequeState extends State<GameList> {
     }
     super.initState();
   }
+//METHODES
+
+  //DELET GAME
+  void _deleteGame({
+    required Game game,
+    required String gameListeType,
+  }) {
+    setState(() {
+      _gameList.remove(game);
+    });
+    if (gameListeType == "ludotheque") {
+      Navigator.of(context).push(
+        MaterialPageRoute(
+          builder: (ctx) => Home(user: widget.user, pageIndex: 1),
+        ),
+      );
+    }
+    if (gameListeType == "wishlist") {
+      Navigator.of(context).push(
+        MaterialPageRoute(
+          builder: (ctx) => Home(user: widget.user, pageIndex: 2),
+        ),
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -41,6 +69,8 @@ class _LudothequeState extends State<GameList> {
         itemCount: _gameList.length, // items is a List
         itemBuilder: (ctx, index) => GameListitem(
           game: _gameList[index],
+          deleteGame: _deleteGame,
+          gameListType: widget.gameListType,
         ),
       ),
     );
