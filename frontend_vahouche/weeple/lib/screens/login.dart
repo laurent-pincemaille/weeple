@@ -9,6 +9,7 @@ enum InputType {
   password,
   pseudo,
   address,
+  search,
 }
 
 class Login extends StatefulWidget {
@@ -104,6 +105,11 @@ class _InputState extends State<Input> {
       _hint = "mot de passe";
       _textInputType = TextInputType.text;
     }
+    if (widget.inputType == InputType.search) {
+      _iconData = Icons.search_outlined;
+      _hint = "quel jeux rechez-vous ?";
+      _textInputType = TextInputType.text;
+    }
     super.initState();
   }
 
@@ -189,7 +195,7 @@ class ConnexionBtn extends StatelessWidget {
           {
             Navigator.of(context).push(
               MaterialPageRoute(
-                builder: (ctx) => Home(user: users[0],pageIndex: 1),
+                builder: (ctx) => Home(user: users[0], pageIndex: 1),
               ),
             );
           }

@@ -23,7 +23,7 @@ class _LudothequeState extends State<GameList> {
   late final List _gameList;
   @override
   void initState() {
-    if (widget.gameListType == "ludotheque") {
+    if (widget.gameListType == "ludothèque") {
       _gameList = widget.user.ludotheque;
     }
     if (widget.gameListType == "wishlist") {
@@ -47,8 +47,11 @@ class _LudothequeState extends State<GameList> {
 
   @override
   Widget build(BuildContext context) {
-    if (_gameList.isEmpty) {
+    if (_gameList.isEmpty && widget.gameListType == "ludothèque") {
       return const EmptyListContent(gameListType: "ludothèque");
+    }
+    if (_gameList.isEmpty && widget.gameListType == "wishlist") {
+      return const EmptyListContent(gameListType: "wishlist");
     }
 
     return Padding(

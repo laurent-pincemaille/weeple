@@ -11,8 +11,8 @@ class Ludotheque extends StatelessWidget {
   Widget build(BuildContext context) {
     final List gameList = user.ludotheque;
     if (gameList.isEmpty) {
-      return const EmptyListContent(gameListType: 'ludotehèque');
+      return const EmptyListContent(gameListType: "ludothèque");
     }
-    return GameList(user: user, gameListType: "ludotheque");
+    return GameList(user: user, gameListType: "ludothèque");
   }
 }

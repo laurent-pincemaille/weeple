@@ -20,8 +20,8 @@ List<User> users = [
       gamesDB.where((game) => game.id == "id9").toList()[0],
     ],
     wishlist: [
-      gamesDB.where((game) => game.id == "id1").toList()[0],
-      gamesDB.where((game) => game.id == "id2").toList()[0],
+      // gamesDB.where((game) => game.id == "id1").toList()[0],
+      // gamesDB.where((game) => game.id == "id2").toList()[0],
     ],
   ),
 ];

@@ -5,6 +5,7 @@ import 'package:weeple/styles.dart';
 import 'package:weeple/widgets/navigation/ludotheque.dart';
 import 'package:weeple/widgets/navigation/messages.dart';
 import 'package:weeple/widgets/navigation/profil.dart';
+import 'package:weeple/screens/search_a_game.dart';
 import 'package:weeple/widgets/navigation/wishlist.dart';
 
 class Home extends StatefulWidget {
@@ -49,8 +50,18 @@ class _HomeState extends State<Home> {
       ];
     }
     if (_currentIdexPage == 1 || _currentIdexPage == 2) {
+      String gameListType = _currentIdexPage == 1 ? "ludothèque" : "wishlist";
+
       _appBarAction = [
-        IconButton(onPressed: () {}, icon: const Icon(Icons.add))
+        IconButton(
+            onPressed: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (ctx) => SearchAGame(
+                        user: _user,
+                        gameListType: gameListType,
+                      )));
+            },
+            icon: const Icon(Icons.search_outlined))
       ];
     }
     return Scaffold(

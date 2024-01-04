@@ -27,18 +27,12 @@ vous pouvez en ajouter grâce au bouton""",
                     fontWeight: FontWeight.bold),
               ),
               const Icon(
-                Icons.add,
+                Icons.search_outlined,
                 size: 36,
                 color: primaryColor,
               )
             ],
           ),
-          const Spacer(),
-          const Image(
-            image: AssetImage("assets/empty.webp"),
-            width: 300,
-          ),
-          const SizedBox(height: 64),
         ],
       ),
     );

@@ -65,7 +65,7 @@ class GameDetails extends StatelessWidget {
                                     child: const Text("Oui"),
                                   ),
                                 ],
-                              )
+                              ),
                             ],
                           ),
                         ),
